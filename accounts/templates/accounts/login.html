@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<br />
+{% block content %}
+
+<div class="container">
+  <br />
+  {% if error %}
+  <p class="text-danger">{{error}}</p>
+  {% endif %}
+
+  <h1>LOGIN</h1>
+  <br />
+
+  <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %} Username:
+    <br />
+    <input type="text" name="username" />
+    <br />
+    Password:
+    <br />
+    <input type="password" name="password" />
+    <br /><br />
+    <input type="submit" value="Login" class="btn btn-primary" />
+  </form>
+  <br /><br />
+
+  <script>
+    document.getElementById("introimg").style.display = "none"; //hide.
+  </script>
+</div>
+
+{%endblock%}
